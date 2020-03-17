@@ -154,7 +154,7 @@ async function actualizar_basedados(artigo, valor, unidade) {
     let pool = await sql.connect(config)
     let result = await pool.request()
       // .input('input_parameter', sql.Int, value)
-      .query("update artigoMoeda set pvp4 = '" + valor +  "'  where Artigo = '"+ artigo +"' and Moeda='MT' and Unidade='"+ unidade +"' ");
+      .query("update artigoMoeda set pvp4 = '" + valor.replace(".","") +  "'  where Artigo = '"+ artigo +"' and Moeda='MT' and Unidade='"+ unidade +"' ");
 
     artigos = result.recordset;
 	console.log(artigos)
